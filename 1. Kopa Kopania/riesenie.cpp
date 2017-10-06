@@ -1,3 +1,5 @@
+// POMALE RIESENIE
+
 #include <iostream>
 #include <chrono>
 
