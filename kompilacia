@@ -1,0 +1,5 @@
+Command ktory maju na stranke:
+    g++ -static -O2 -std=gnu++11 riesenie.cc
+
+Command na testovanie
+    g++ -ggdb -Wall -Wextra -Wpedantic -std=c++14
