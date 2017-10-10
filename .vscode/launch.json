@@ -5,7 +5,7 @@
                 "name": "(gdb) Launch",
                 "type": "cppdbg",
                 "request": "launch",
-                "program": "${workspaceRoot}/2. Obavana skratka/a.out",
+                "program": "${workspaceRoot}/3. Lieciva alpa/a.out",
                 "args": ["-ggdb"],
                 "stopAtEntry": false,
                 "cwd": "${workspaceRoot}",
