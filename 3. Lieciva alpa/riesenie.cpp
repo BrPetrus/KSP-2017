@@ -23,14 +23,6 @@ int main() {
     }
 
     // Algoritmus
-
-    // long sucet = spocitaj(0);
-    // // Ak je vo flaske viacek kvapiek ako bojovnikov, nema cenu ani pokracovat
-    // if (nZranenych < nKvapiek) {
-    //     cout << "0\n";
-    //     return 0;
-    // }
-
     long riesenie = 0;
 
     for (long i = 0; i < nZranenych; i++) {
@@ -48,7 +40,7 @@ int main() {
         }
 
         // Ak je cely rad liecitelny bez mrhania
-        if (sucet % nKvapiek == 0) {
+        if ((sucet % nKvapiek) == 0) {
             riesenie = nZranenych-i;
             continue;
         }
@@ -56,7 +48,7 @@ int main() {
         long medziSucet = sucet;
         // ma to byt > a nie >= ze?
         long iteraciaJ = 1;
-        for (long j = nZranenych; j > i; j--) {
+        for (long j = nZranenych; j >= i; j--) {
             medziSucet -= zranenia[j-1];
 
             // Ak je sucet mensi ako pocet kvapiek nema zmysel -> mrhali by sme alpou
@@ -66,7 +58,10 @@ int main() {
 
             if (medziSucet % nKvapiek == 0) {
                 //riesenie = nZranenych-j;
-                riesenie = nZranenych-i-iteraciaJ;
+                //riesenie = nZranenych-i-iteraciaJ;
+                if (nZranenych-i-iteraciaJ > riesenie) {
+                    riesenie = nZranenych-i-iteraciaJ;
+                }
                 break;
             }
             iteraciaJ++;
