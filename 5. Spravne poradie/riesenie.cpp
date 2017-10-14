@@ -7,7 +7,7 @@
 using namespace std;
 
 int nAkcii = 0, nZavislosti = 0, nBojovnikov = 0;
-bool** pravidla = nullptr;
+//bool** pravidla = nullptr;
 
 
 int main() {
@@ -40,6 +40,8 @@ int main() {
 
         while (akcneBody > 0) {
             for (auto k : bojovnik) {
+                if (!k.second)
+                    continue;
                 bool mozmeVymazat = true;
 
                 // Pozri sa na pravidla
@@ -50,9 +52,10 @@ int main() {
                         mozmeVymazat = false;
                         break;
                     }
-                    else {
-                        bojovnik.erase(pravidlo);
-                    }
+                    // Nejako sa tohoto krkolomneho zbavit
+                    // else {
+                    //     bojovnik.erase(pravidlo);
+                    // }
                 }
 
                 if (mozmeVymazat) {
