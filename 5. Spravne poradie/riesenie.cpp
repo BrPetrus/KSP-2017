@@ -7,7 +7,6 @@
 using namespace std;
 
 int nAkcii = 0, nZavislosti = 0, nBojovnikov = 0;
-//bool** pravidla = nullptr;
 
 
 int main() {
@@ -15,7 +14,7 @@ int main() {
 
     map<int, vector<int>> pravidla;
 
-    // Vytvorime pravidla
+    // Vytvorime pravidla. Kluc je akcia X a value je vector, ktory drzi vsetky nepovolene akcie po vykonani X.
     int key = 0;
     int value = 0;
     for (int i = 0; i < nZavislosti; i++) {
@@ -29,6 +28,8 @@ int main() {
     for (int i = 0; i < nBojovnikov; i++) {
         int akcneBody = 0;
         cin >> akcneBody;
+
+        // Sem ulozime vsetky akcie, ktore chce vykonat ako kluc. Value je v podstate zbytocny. 
         map<int, bool> bojovnik;
         for (int j = 0; j < akcneBody; j++) {
             int a = 0;
@@ -37,32 +38,32 @@ int main() {
         }
 
         
-
+        // Zakial su volne akcne body
         while (akcneBody > 0) {
+            // Pozrime sa na kazdu akciu ktoru chce spravit.
             for (auto k : bojovnik) {
+                // Kvoli tomu ze operator[] v map vytvori novu instanciu -> musime ingorovat tie ktore nas nezajimaju
                 if (!k.second)
                     continue;
                 bool mozmeVymazat = true;
 
                 // Pozri sa na pravidla
-                //vector<int> momentalnePravidla = pravidla[k]; 
                 for (auto pravidlo : pravidla[k.first]) {
                     // Ak by sme urobenim akcie zabranili urobeniu dalsich
                     if (bojovnik[pravidlo] == true) {
                         mozmeVymazat = false;
                         break;
                     }
-                    // Nejako sa tohoto krkolomneho zbavit
-                    // else {
-                    //     bojovnik.erase(pravidlo);
-                    // }
                 }
 
+
+                // Ak mozme vykonat tuto akciu, napiseme ju do riesene a vymazeme z mapy (alebo nastavime na false)
                 if (mozmeVymazat) {
                     // Zbytocna medzera na konci by mohla sposobit chybu
                     int tmp = k.first;
                     riesenie << tmp << " ";
-                    bojovnik.erase(k.first);
+                    // bojovnik.erase(k.first);
+                    bojovnik[k.first] = false;
                     akcneBody--;
                 }
             }
