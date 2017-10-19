@@ -1,6 +1,8 @@
 #include <iostream>
 
+// Kolko je celkovo zranenych a kolko kvapiek je v jednej ampulke
 long nZranenych = 0, nKvapiek = 0;
+// Tu ulozime rad zranenych bojovnikov
 long* zranenia = nullptr;
 
 using namespace std;
@@ -34,20 +36,19 @@ int main() {
         }
 
         // Ak je pocet bojovnikov mensi ako riesenie nema cenu pokracovat v iterovanii.
-        // co tak <= ?
         if (riesenie > (nZranenych-i)) {
             break;
         }
 
         // Ak je cely rad liecitelny bez mrhania
         if ((sucet % nKvapiek) == 0) {
-            riesenie = nZranenych-i;
+            riesenie = nZranenych-i; // vzdy bude najvacsie riesenie
             continue;
         }
 
+        // Tu budeme postupne odoberat po bojovnikovi od konca a snazit sa najst kolko najviac ich vyliecime
         long medziSucet = sucet;
-        // ma to byt > a nie >= ze?
-        long iteraciaJ = 1;
+        long iteraciaJ = 1; // Kolkata iteracia to je (od 1)
         for (long j = nZranenych; j >= i; j--) {
             medziSucet -= zranenia[j-1];
 
@@ -57,8 +58,7 @@ int main() {
             }
 
             if (medziSucet % nKvapiek == 0) {
-                //riesenie = nZranenych-j;
-                //riesenie = nZranenych-i-iteraciaJ;
+                // Ak je to doteraz najvacsie riesenie
                 if (nZranenych-i-iteraciaJ > riesenie) {
                     riesenie = nZranenych-i-iteraciaJ;
                 }
