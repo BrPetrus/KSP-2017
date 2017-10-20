@@ -6,65 +6,24 @@ int* mapa = nullptr;
 int velkostMapy = 0;
 int riesenie = 0;
 
-// // Ak sa da zahrabrat jama na indexe iJame, zahrabe ju. Vrati true ak zahrabal inak false.
-// bool zahrab(int iJama) {
-//     bool l = true;
-//     bool p = true;
-//     int i = 1;
-//     while(l || p) {
-//         if(l) {
-//             //Nasli sme kopec
-//             if(mapa[iJama-i] == 1) {
-//                 mapa[iJama] = -1;
-//                 mapa[iJama-i] = -1;
-//                 riesenie -= 2;
-//                 return true;
-//             }
-//             else if (mapa[iJama-i] == 0) { //Jama
-//                 // Nemozme zahrabat z tejto strany
-//                 l = false;
-//             }
-                   
-//         }
-//         if(p) {
-//             //Nasli sme kopec
-//             if(mapa[iJama+i] == 1) {
-//                 mapa[iJama] = -1;
-//                 mapa[iJama+i] = -1;
-//                 riesenie -= 2;
-//                 return true;
-//             }
-//             else if (mapa[iJama+i] == 0) { //Jama
-//                 // Nemozme zahrabat z tejto strany
-//                 p = false;
-//             }
-//         }
-//         i++;
-//     }
-
-//     return false;
-// }
-
-
 int main() {
 
     // Kolko nerovnosti mame ocakavat
     std::cin >> velkostMapy;
-    riesenie = velkostMapy;
 
     mapa = new int[velkostMapy];
 
     // Nacitaj "mapu" sveta
     std::string vstup;
     std::cin >> vstup;
-    //const char* vstups = vstup.c_str();
 
     for(int i = 0; i < velkostMapy; ++i) {
-        //mapa[i] = vstups[i] - '0';
+        // Konvertuj char na cislo
         mapa[i] = (vstup.c_str()[i] - '0'); 
     }
     
    
+    // Pocet jam a pocet kopcov
     int x=0, y=0;
     for(int i = 0; i < velkostMapy; ++i) {
         if(mapa[i] == 0) { // Jama
@@ -75,7 +34,9 @@ int main() {
         }
     }
 
-    // Nakoniec stacilo odpocitat proste :DDD
+
+    // Teraz staci len odpcitat x a y.
+    // Aby sme sa vyhli zapornym odnotam, treba odpocitat mensie od vacsieho
     if(x > y)
         riesenie = x-y;
     else
@@ -84,7 +45,5 @@ int main() {
     std::cout << riesenie << std::endl;
 
     delete[] mapa;
-
-    
     return 0;
 }
