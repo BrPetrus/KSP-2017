@@ -23,6 +23,7 @@ int main() {
     // Cas dokopy
     for(long long i = 0; i < nZahradiek; i++) {
         cin >> vstup;
+        // Ak je nemozne prejst danu zahradku(ani s lektvarom), lebo nemame dostatok casu.
         if(vstup < dlzky[i]) {
             cout << "-1\n";
             return 0;
@@ -49,7 +50,5 @@ int main() {
             return 0;
         }
     }
-
-    cout << "-1" << "\n";
     return 0;
 }
