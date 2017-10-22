@@ -1,5 +1,5 @@
 #include <iostream>
-#include <map>
+#include <unordered_map>
 #include <vector>
 #include <string>
 #include <sstream>
@@ -12,7 +12,7 @@ int nAkcii = 0, nZavislosti = 0, nBojovnikov = 0;
 int main() {
     cin >> nAkcii >> nZavislosti >> nBojovnikov;
 
-    map<int, vector<int>> pravidla;
+    unordered_map<int, vector<int>> pravidla;
 
     // Vytvorime pravidla. Kluc je akcia X a value je vector, ktory drzi vsetky nepovolene akcie po vykonani X.
     int key = 0;
@@ -30,7 +30,7 @@ int main() {
         cin >> akcneBody;
 
         // Sem ulozime vsetky akcie, ktore chce vykonat ako kluc. Value je v podstate zbytocny. 
-        map<int, bool> bojovnik;
+        unordered_map<int, bool> bojovnik;
         for (int j = 0; j < akcneBody; j++) {
             int a = 0;
             cin >> a;
@@ -70,7 +70,6 @@ int main() {
         }
         riesenie << "\n";
     }
-
     cout << riesenie.str();
     return 0;
 }
