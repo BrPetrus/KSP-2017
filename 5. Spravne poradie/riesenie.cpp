@@ -29,7 +29,7 @@ int main() {
         int akcneBody = 0;
         cin >> akcneBody;
 
-        // Sem ulozime vsetky akcie, ktore chce vykonat ako kluc. Value je v podstate zbytocny. 
+        // Sem ulozime vsetky akcie, ktore chce vykonat ako kluc. Value indikuje, ci uz bola vykonana (false)
         unordered_map<int, bool> bojovnik;
         for (int j = 0; j < akcneBody; j++) {
             int a = 0;
@@ -45,20 +45,20 @@ int main() {
                 // Kvoli tomu ze operator[] v map vytvori novu instanciu -> musime ingorovat tie ktore nas nezajimaju
                 if (!k.second)
                     continue;
-                bool mozmeVymazat = true;
+                bool mozmeVykonat = true;
 
                 // Pozri sa na pravidla
                 for (auto pravidlo : pravidla[k.first]) {
-                    // Ak by sme urobenim akcie zabranili urobeniu dalsich
+                    // Ak by sme urobenim akcie zabranili urobeniu dalsich akcii
                     if (bojovnik[pravidlo] == true) {
-                        mozmeVymazat = false;
+                        mozmeVykonat = false;
                         break;
                     }
                 }
 
 
                 // Ak mozme vykonat tuto akciu, napiseme ju do riesene a vymazeme z mapy (alebo nastavime na false)
-                if (mozmeVymazat) {
+                if (mozmeVykonat) {
                     // Zbytocna medzera na konci by mohla sposobit chybu
                     int tmp = k.first;
                     riesenie << tmp << " ";
