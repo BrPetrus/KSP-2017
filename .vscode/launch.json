@@ -5,7 +5,7 @@
                 "name": "(gdb) Launch",
                 "type": "cppdbg",
                 "request": "launch",
-                "program": "${workspaceRoot}/5. Spravne poradie/a.out",
+                "program": "${workspaceRoot}/7. Utrapeny Michallius/a.out",
                 "args": ["-ggdb"],
                 "stopAtEntry": false,
                 "cwd": "${workspaceRoot}",
