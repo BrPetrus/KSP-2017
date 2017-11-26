@@ -1,11 +1,12 @@
 {
         "version": "0.2.0",
         "configurations": [
+            
             {
                 "name": "(gdb) Launch",
                 "type": "cppdbg",
                 "request": "launch",
-                "program": "${workspaceRoot}/7. Utrapeny Michallius/a.out",
+                "program": "${workspaceRoot}/Druhe Kolo/2. Ostara s huncutmi malymi/a.out",
                 "args": ["-ggdb"],
                 "stopAtEntry": false,
                 "cwd": "${workspaceRoot}",
