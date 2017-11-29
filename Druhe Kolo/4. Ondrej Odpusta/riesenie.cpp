@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-unsigned long long c = 0;
+long long c = 0;
 
 // Na kolkatej cifre obsahuje
 long long obsahuje(long long n) {
@@ -34,6 +34,7 @@ int main() {
 
     long long a;
     std::cin >> a;
+    a++;
 
     long long i = 1;
     long long minC = 0;
@@ -43,20 +44,26 @@ int main() {
             continue;
         }
 
-        if (c >= a) {
+        //std::cout << i << "\t" << c << "\n";
+
+        while (c >= a) {
             std::cout << najdiCifru(i, c-a) << std::endl;
             aOtazka++;
             if (!(aOtazka > nOtazok)) {
                 std::cin >> a;
-                // if (a < c) {
-                //     i = -1;
-                //     c = 0;
-                //    // minC = 0;
-                // }
+                a++;
+                if (a < c && a < (minC+1)) {
+                     i = 0;
+                     c = 0;
+                    // minC = 0;
+                }
+            }
+            else {
+                return 0;
             }
                 
         }
-        //minC = c;
+        minC = c;
         i++;
     }
 

@@ -19,13 +19,22 @@ long long obsahuje(long long n) {
     return -1;
 }
 
-int main() {
-    for(int i = 1; i < 1000; i++) {
-        if (obsahuje(i) != -1) {
-            i += pow(10, obsahuje(i));
-            i--;
-            continue;
-        }
-        std::cout << i << "\t" << c << "\n";
+int najdiCifru(long long n, int index) {
+    for (int i = 0; i < index; i++) {
+        n /= 10;
     }
+    return n%10;
+}
+
+int main() {
+    // for(int i = 1; i < 1000; i++) {
+    //     if (obsahuje(i) != -1) {
+    //         i += pow(10, obsahuje(i));
+    //         i--;
+    //         continue;
+    //     }
+    //     std::cout << i << "\t" << c << "\n";
+    // }
+
+    std::cout << najdiCifru(15789, 3) << std::endl;
 }
