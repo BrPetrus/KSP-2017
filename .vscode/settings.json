@@ -28,6 +28,7 @@
         "sstream": "cpp",
         "tuple": "cpp",
         "utility": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "cmath": "cpp"
     }
 }
