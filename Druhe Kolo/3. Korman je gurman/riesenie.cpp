@@ -5,16 +5,6 @@ using namespace std;
 
 int main() {
     multimap<int, int> cisla;
-    // cisla.emplace(1,0);
-    // cisla.emplace(3,1);
-    // cisla.emplace(4,2);
-    // cisla.emplace(6,3);
-    // cisla.emplace(5,4);
-    // cisla.emplace(2,5);
-    // cisla.emplace(7,6);
-    // cisla.emplace(8,7);
-    // cisla.emplace(3,8);
-    // cisla.emplace(3,8);
 
     int n;
     cin >> n;
@@ -38,13 +28,8 @@ int main() {
                 druhe->second = -krok;
             }
         }
-        // cout << (*it).first << "\t" << (*it).second << "\n";
     }
 
-    cout << "Pocet krokov: " << krok << endl;
-    for (auto prvok: cisla) {
-        cout << prvok.first << "\t" << prvok.second << endl;
-    }
-
+    cout << krok << "\n";
     return 0;
 }
