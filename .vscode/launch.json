@@ -6,7 +6,7 @@
                 "name": "(gdb) Launch",
                 "type": "cppdbg",
                 "request": "launch",
-                "program": "${workspaceRoot}/Druhe Kolo/4. Ondrej Odpusta/a.out",
+                "program": "${workspaceRoot}/Druhe Kolo/3. Korman je gurman/a.out",
                 "args": ["-ggdb"],
                 "stopAtEntry": false,
                 "cwd": "${workspaceRoot}",

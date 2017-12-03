@@ -17,10 +17,13 @@ int main() {
 
     int krok = 0;
 
-    multimap<int, int>::reverse_iterator prve;
-    for (prve = cisla.rbegin(); prve != cisla.rend(); prve++) {
+    multimap<int, int>::reverse_iterator prve = cisla.rbegin();
+    for (; prve != cisla.rend();) {
         multimap<int, int>::reverse_iterator druhe = prve;
-        druhe++;
+        advance(druhe, 1);
+        if (druhe == cisla.rend()) {
+            break;    
+        }
         int pocet = cisla.count(druhe->first);
         for (int i = 0; i < pocet; i++, druhe++) {
             if(prve->second < druhe->second) { // Ak je mensie dalej ako vacsie
@@ -28,6 +31,7 @@ int main() {
                 druhe->second = -krok;
             }
         }
+        advance(prve, pocet);
     }
 
     cout << krok << "\n";
