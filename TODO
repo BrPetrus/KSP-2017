@@ -32,3 +32,8 @@ DRUHE KOLO:
     ✔ hotovo @done(17-12-03 20:17)
   4. :
     ☐ opravit
+  6. Azijez a tovaren na cokoladu:
+    upraveny djikstrov algoritmus
+    ✔ rychlejsia verzia - pouzitie priority_queue @done(17-12-10 14:09)
+    ☐ implementacia bez viacerych riek
+    ☐ ako urobit ked je tam viacej riek
