@@ -1,12 +1,33 @@
+// Mozeme pouzit len isty pocet hran
+
 #include <vector>
 #include <queue>
 #include <iostream>
 
 using namespace std;
 
+struct Vrchol {
+    Vrchol(const int v, const int m) {spracovany=false;};
+    vector<Hrana> hrany;
+    int vzd; // Pocet hran od startu
+    int vzdHrany; // Pocet hran cez ktore sme presli, aby sme sa dostali do tohto vrcholu 
+    bool spracovany;
+};
+
+bool operator<(const Vrchol& a, const Vrchol& b) {
+        return a.vzd > b.vzd;
+}
+
+struct Hrana {
+    Hrana(const int k, const int vzd) :
+    kam(k), vzd(vzd) {}; 
+    int kam;
+    int vzd;
+};
+
 // Cislo suseda, dlzka hrany
-vector<vector<pair<int,int>> > G;
-vector<int> D, V; // Nespracovane a spracovane
+vector<Vrchol> G;
+vector<Vrchol> V; // Nespracovane a spracovane
 
 int n = 5;
 
@@ -40,13 +61,15 @@ int main() {
     tmp.clear();
 
 
-    V.resize(n, -1);
-    int a = 4; // Zaciname vo vrchole a
+    V.resize(n);
+    int a = 0; // Zaciname vo vrchole a
 
     // Nespracovane vrcholy; First=vzdialenost Second=Vrchol
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>> > D;
+    //priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>> > D;
+    priority_queue<Vrchol> D;
 
     // Start
+    
     D.push({0, a});
     while(!D.empty()) {
         // Vymazeme uz spracovane vrcholy

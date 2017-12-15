@@ -35,5 +35,9 @@ DRUHE KOLO:
   6. Azijez a tovaren na cokoladu:
     upraveny djikstrov algoritmus
     ✔ rychlejsia verzia - pouzitie priority_queue @done(17-12-10 14:09)
+    ☐ implementacia max hran
+      ☐ mozme nechat povodny algoritmus a upravit len G
+      ☐ obmedzenieshranami.cpp: od 4 to 1 -> 4 HRANY PRECO?????
+    ☐ implementacia start-koniec
     ☐ implementacia bez viacerych riek
     ☐ ako urobit ked je tam viacej riek

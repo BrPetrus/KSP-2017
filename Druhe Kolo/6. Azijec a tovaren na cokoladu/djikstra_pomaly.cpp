@@ -43,7 +43,7 @@ int main() {
     D.resize(n, INF);
     V.resize(n, INF);
 
-    int a = 0; // Zaciatocny vrchol
+    int a = 4; // Zaciatocny vrchol
     D[a] = 0;
 
     // Postupne prechadzame cez vrcholy a spracuvavame ich

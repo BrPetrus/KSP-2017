@@ -1,3 +1,4 @@
+// medzi dvoma vrcholmi je len jedna rieka
 #include <vector>
 #include <queue>
 #include <iostream>
@@ -6,42 +7,29 @@ using namespace std;
 
 // Cislo suseda, dlzka hrany
 vector<vector<pair<int,int>> > G;
-vector<int> D, V; // Nespracovane a spracovane
+vector<int> V; // Nespracovane a spracovane
 
-int n = 5;
+int djikstra(int a, int e, ) {
+
+}
 
 int main() {
-    vector<pair<int, int>> tmp;
-    tmp.push_back({2, 5});
-    tmp.push_back({1, 2});
-    G.push_back(tmp);
-    tmp.clear();
-
-    tmp.push_back({0, 2});
-    tmp.push_back({3, 6});
-    G.push_back(tmp);
-    tmp.clear();
-
-    tmp.push_back({0, 5});
-    tmp.push_back({3, 1});
-    tmp.push_back({4, 3});
-    G.push_back(tmp);
-    tmp.clear();
-
-    tmp.push_back({1, 6});
-    tmp.push_back({2, 1});
-    tmp.push_back({4, 1});
-    G.push_back(tmp);
-    tmp.clear();
-
-    tmp.push_back({2, 3});
-    tmp.push_back({3, 1});
-    G.push_back(tmp);
-    tmp.clear();
-
-
+    int n, m, q; // Pocet vrcholov, hran, otazok
+    cin >> n >> m >> q;
     V.resize(n, -1);
-    int a = 4; // Zaciname vo vrchole a
+    G.resize(n);
+
+    for (int i = 0; i < m; i++) {
+        int vrchol, sused, vzd;
+        cin >> vrchol >> sused >> vzd;
+        G[vrchol-1].push_back({sused, vzd});
+    }
+
+    for (int i = 0; i < q; i++) {
+
+    }
+
+    int a = 0; // Zaciname vo vrchole a
 
     // Nespracovane vrcholy; First=vzdialenost Second=Vrchol
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>> > D;
