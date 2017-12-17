@@ -12,7 +12,7 @@ int main() {
         std::cin >> cokolada;
 
         int pocetRozdeleni = 0;
-        while (cokolada % 2 == 0) {    // Ak mozme spravodlivo rozdelit
+        while (cokolada % 2 == 0) {    // Ak mozeme spravodlivo rozdelit
             pocetRozdeleni++;
             cokolada /= 2;
         }
