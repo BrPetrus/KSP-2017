@@ -19,16 +19,19 @@ int main(int argc, char* argv[]) {
 
         // Ak dalsia cokolada padne neskor
         if(den < d) {
+			// Preskocme nepotrebne dni a vypisme miesto hranice
             for (int i = den; i < d; i++) {
                 std::cout << hranica << "\n";
             }
         }
         den = d;
 
+		// Pozrime sa na cokolady
         cokolady.insert(p);
         std::set<int>::iterator i;
         for(i = cokolady.find(hranica); i != cokolady.end(); i++) {
-            if (*i <= hranica+v) {
+            // Ak mozme rozsirit hranicu
+			if (*i <= hranica+v) {
                 hranica = *i;
             }
         }
