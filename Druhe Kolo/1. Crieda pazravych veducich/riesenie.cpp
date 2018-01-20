@@ -17,6 +17,7 @@ int main() {
             cokolada /= 2;
         }
 
+        // Nemozeme prerozdelit, vsetko zostane Kubovy
         if (cokolada == 1) {
             std::cout << 1 << "\n";
             continue;
