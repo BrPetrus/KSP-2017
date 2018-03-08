@@ -6,7 +6,7 @@
                 "name": "(gdb) Launch",
                 "type": "cppdbg",
                 "request": "launch",
-                "program": "${workspaceRoot}/Druhy polrok/Prve Kolo/3. Hura na Oravu/Test",
+                "program": "${workspaceRoot}/Druhy polrok/Prve Kolo/2. Uzimeny vecer/a.out",
                 "args": ["-ggdb"],
                 "stopAtEntry": false,
                 "cwd": "${workspaceRoot}",
