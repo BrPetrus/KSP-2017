@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# LaTex files
+*.aux
+*.backup
+*.dvi
+*.log

@@ -1,0 +1,60 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+
+% Lepsi font na slovenske pismena
+\usepackage[T1]{fontenc}
+% Na fotecky
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+%opening
+\title{1. Treba začať kúriť}
+\author{Bruno Petrus}
+
+\begin{document}
+
+\maketitle
+
+\section*{Predpoklad}
+
+Lomižaba dokáže lámať sáhovicu na polovicu. Vieme, že dĺžka sáhovice je $2^n$. Ak je teda dĺžka sáhovica mocninou 2 a Lomižaba vie rozdeľovať len na polovicu, vieme vždy deliť sáhovicu až dôjdeme k číslu 1 bezozvyšku. V podstate pri hľadaní $k$ musíme nájsť súčet mocnín dvojky rovnajúci sa $k$.
+
+
+Naše riešenie funguje na predpoklade, že všetky prirodzené čísla sa dajú rozložiť na súčet mocnín dvojky. Vyberme si nejaké číslo, dajme tomu 10. Číslo 10 je vlastne súčet $1*10^1 + 0*10^0$. Hocijaké číslo dokážeme rozložiť na súčet mocnín 10. Takto vlastne funguje naša desiatková číselná sústava. V úlohe však pracujeme s mocninami dvojky a nie 10, čo však môžeme urobiť je, premeniť toto číslo do dvojkovej sústavy, lebo číslo v dvojkovej sústave je vlastne zápis pomocou mocnín dvojky. Napríklad:
+$$76_{10} = 7 * 10^1 + 6*10^0$$
+$$01001100_{2} = 2^6 + 2^3 + 2^2 = 76_{10}$$
+Môžeme teda zapísať všetky čísla ako súčet mocnín dvojky, tým že ich premeníme do binárnej sústavy.
+
+\section*{Riešenie}
+Dajme tomu, že sme dostali parametre $n=4, k=9$. Dĺžka sáhovice je teda 16.
+
+\begin{figure}[h]
+%+\caption{Príklad rozhodovacieho procesu.}
+\centering
+\includegraphics[scale=0.25]{diagram_image}
+\end{figure}
+
+Na obrázku môžeme vidieť rozhodovanie pri tomto procese. Najskôr rozdelíme 16 na polovicu. Máme dve sáhovice o dĺžke 8. Potrebujeme však poskladať sáhovnicu o dĺžke 9, to znamená, že budeme musieť sáhovicu deliť na polovicu až kým nebude nejaký kus dlhý 1. Čize musíme pôvodnú sáhovicu rozdeliť štyrikrát. Potom 9 poskladáme z 8 a 1.
+
+
+Na tomto príklade môžeme vidieť, že darmo sme pri prvom rozdelení blízko výsledku, musíme rozdelovať až po jednotku. Môžeme povedať, že počet krokov bude práve závisieť od toho, koľkokrát sáhovicu musíme rozdeliť, aby sme dostali to najmenšie číslo v súčte.
+
+
+Premeníme parameter $k$ do dvojkovej sústavy a pozreme sa na najmenej signifikantnú cifru. Bude závisieť koľkokrát musíme pôvodnú sahovicu rozdeliť, aby sme dostali toto najmenšie číslo. Napríklad:
+$$9_{10} = 1001_2$$
+V tomto prípade je najmenšie cifra $2^0=1$ a teda musíme zistiť koľkokrát musíme sáhovicu rozdeliť, aby sme získali toto najmenšie čislo. Vieme, že dĺžka sáhovice je $2^n = 2^4$ a teda stači nám vydeliť toto čislo číslom $2^0$, čo sa rovná ${2^4}/{2^0}=2^4$. Exponent výsledku nám teda hovorí koľkokrát to musíme podeliť.
+
+Všeobecne, ak dostaneme parametre $n$ a  $k$ číslo $k$ premeníme do dvojkovej sústavy, nájdeme najmenej signifikantnú mocninu dvojky $2^m$ a výsledok sa teda bude rovnať $n-m$ krokov.
+
+\section*{Zložitosť algoritmu}
+Časová zložitosť programu je konštantná. Nezáleží na veľkosti parametrov. Potrebujeme zistiť len najmenšiu mocnicu dvojky alebo teda pozíciu najmenšieho bitu v premennej k. Toto odpočítame od n a máme výsledok.
+$O(1)$
+
+
+Pamäťová zložitosť je taktiež konštantná, lebo si pamätáme len parametre.
+$O(1)$
+
+\section*{Dotaz k implementácii}
+Aby sme zistili najmenšiu mocninu dvojky alebo teda pozíciu najmenšieho bitu v premennej $k$, sme použili funkciu ffsl()\footnote{\url{https://linux.die.net/man/3/ffsl}}
+
+\end{document}
